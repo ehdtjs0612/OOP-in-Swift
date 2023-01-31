@@ -8,11 +8,15 @@
 import Foundation
 
 
-var memberService: MemberService = MemberServiceImpl()
-var member: Member = Member(id: 1, name: "유동선", grade: .VIP)
 
+var orderService: OrderService = OrderServiceImpl()
+var memberService: MemberService = MemberServiceImpl()
+
+var memberId: Int = 1
+var member: Member = Member(id: memberId, name: "유동선", grade: .VIP)
 memberService.join(member: member)
 
-var findMember = memberService.findByMember(id: 1)
+var order1 = orderService.createOrder(memberId: memberId, itemName: "item1", itemPrice: 10000)
 
-print("findMember : \(findMember.getName())")
+
+print(order1.description())
