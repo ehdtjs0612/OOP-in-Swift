@@ -8,7 +8,6 @@
 import Foundation
 
 enum Grade {
-    
     case BASIC
     case VIP
 }

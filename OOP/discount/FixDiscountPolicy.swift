@@ -12,7 +12,7 @@ class FixDiscoundPolicy: DiscountPolicy {
     private let discountFixAmount: Int = 1000
     
     func discount(member: Member, price: Int) -> Int {
-        
+
         if member.getGrade() == .VIP {
             
             return discountFixAmount

@@ -8,7 +8,6 @@
 import Foundation
 
 protocol MemberRepository {
-    
     func save(member: Member)
     func findById(id: Int) -> Member
 }

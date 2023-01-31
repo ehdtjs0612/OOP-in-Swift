@@ -8,7 +8,6 @@
 import Foundation
 
 class MemoryMemberRepository: MemberRepository {
-    
     private var store: [Int: Member] = [:]
     
     func save(member: Member) {

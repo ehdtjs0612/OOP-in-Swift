@@ -8,6 +8,5 @@
 import Foundation
 
 protocol DiscountPolicy {
-    
     func discount(member: Member, price: Int) -> Int
 }

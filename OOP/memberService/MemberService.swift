@@ -8,7 +8,6 @@
 import Foundation
 
 protocol MemberService {
-    
     func join(member: Member)
     func findByMember(id: Int) -> Member
 }
