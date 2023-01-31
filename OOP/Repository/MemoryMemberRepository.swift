@@ -12,11 +12,19 @@ class MemoryMemberRepository: MemberRepository {
     private var store: [Int: Member] = [:]
     
     func save(member: Member) {
-        store.updateValue(member, forKey: member.getId())
+        
+        store[member.getId()] = member
     }
     
-    func findById(id : Int) -> Member {
+    func findById(id: Int) -> Member {
         
-        return store[id]!
+        guard let member = store[id] else {
+            
+            return Member(id: -1, name: "Unknown", grade: .VIP)
+        }
+        
+        return member
     }
 }
+    
+    
