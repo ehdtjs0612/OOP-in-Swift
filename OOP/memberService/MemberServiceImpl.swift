@@ -8,8 +8,12 @@
 import Foundation
 
 class MemberServiceImpl: MemberService {
+//    var memberRepository: MemberRepository = MemoryMemberRepository()   // <- DIP 위반 (추상화, 구체화 둘다 의존하는 코드)
+    private var memberRepository: MemberRepository
     
-    var memberRepository: MemberRepository = MemoryMemberRepository()   // <- DIP 위반 (추상화, 구체화 둘다 의존하는 코드)
+    init(_ memberRepository: MemberRepository) {
+        self.memberRepository = memberRepository
+    }
     
     func join(member: Member) {
         

@@ -10,12 +10,19 @@ import Foundation
 class OrderServiceImpl: OrderService {
     
     // 주문서비스 구현체
+
+//    private var memberRepository: MemberRepository = MemoryMemberRepository()
+//    private let discountPolicy: DiscountPolicy = RateDiscountPolicy()
     
-    private var memberRepository: MemberRepository = MemoryMemberRepository()
-    private let discountPolicy: DiscountPolicy = FixDiscoundPolicy()
+    private let memberRepository: MemberRepository
+    private let discountPolicy: DiscountPolicy
+    
+    init(_ memberRepository: MemberRepository, _ discountPolicy: DiscountPolicy) {
+        self.memberRepository = memberRepository
+        self.discountPolicy = discountPolicy
+    }
     
     func createOrder(memberId: Int, itemName: String, itemPrice: Int) -> Order {
-        
         let member = memberRepository.findById(id: memberId)
         let discountPrice = discountPolicy.discount(member: member, price: itemPrice)
         
